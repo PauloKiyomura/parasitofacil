@@ -112,9 +112,8 @@ main {
 .button-container {
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza verticalmente (se necessário) */
   width: 100%;
-  margin-top: 20px; /* Adiciona um espaçamento se necessário */
 }
 
 .back-button {
@@ -126,8 +125,6 @@ main {
   text-decoration: none;
   border-radius: 8px;
   transition: 0.3s ease-in-out;
-  display: inline-block; /* Garante que o botão respeita o flexbox */
-  text-align: center;
 }
 
 .back-button:hover {
