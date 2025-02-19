@@ -59,8 +59,9 @@ main h2 {
 
     /* Botão de voltar */
     .back-button {
-      display: inline-block;
-      margin-bottom: 20px;
+      display: block;
+      width: fit-content;
+      margin: 0 auto 20px auto;
       padding: 12px 20px;
       background: #6200ea;
       color: white;
@@ -69,14 +70,14 @@ main h2 {
       text-decoration: none;
       border-radius: 8px;
       transition: 0.3s ease-in-out;
-      margin-left: 50%;
-
+      text-align: center;
     }
-
+    
     .back-button:hover {
       background: #3700b3;
       transform: scale(1.05);
     }
+    
 
 /* Ajuste do container de vídeo */
 .video-container {
