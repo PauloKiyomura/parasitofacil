@@ -49,18 +49,23 @@
     padding: 15px 0;
     z-index: 1000;
 }
+.button-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente (se necessário) */
+  width: 100%;
+}
+
 .back-button {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 12px 20px;
-      background: #6200ea;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s ease-in-out;
-    }
+  padding: 12px 20px;
+  background: #6200ea;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+}
 
     .back-button:hover {
       background: #3700b3;
@@ -73,7 +78,9 @@
     <h1>Créditos</h1>
   </header>
   <main>
-    <a href="../materia/landingpage.html" class="back-button"><i class="fas fa-arrow-left"></i> Voltar para o início</a>
+    <div class="button-container">
+      <a href="../materia/landingpage.html" class="back-button">⬅ Voltar para a início</a>
+  </div>
     <h2>Agradecimentos e Equipe</h2>
     <p>Aqui você encontra os créditos da equipe e agradecimentos especiais a todos que contribuíram para este projeto.</p>
     <!-- Adicione mais conteúdo conforme necessário -->

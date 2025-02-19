@@ -109,10 +109,14 @@ main {
   bottom: 0; /* Coloca o rodapé no final da tela */
 }
 
-/* Links */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente (se necessário) */
+  width: 100%;
+}
+
 .back-button {
-  display: inline-block;
-  margin-bottom: 20px;
   padding: 12px 20px;
   background: #6200ea;
   color: white;
