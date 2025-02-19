@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  ]<link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <title>Conteúdos - Múltiplos Olhares sobre a Parasitologia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('../assets/IMG_9557.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100vw;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 0 0 15px 15px;
+    }
+
+    header h1 {
+      color: white;
+      text-decoration: underline;
+    }
+
+    main {
+      width: 98%;
+      max-width: 1200px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      margin: 30px auto;
+    }
+
+    /* Botão de voltar */
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 12px 20px;
+      background: #6200ea;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .back-button:hover {
+      background: #3700b3;
+      transform: scale(1.05);
+    }
+
+    /* Contêiner do slide */
+    .canva-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 60%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      margin-top: 20px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    /* Efeito de zoom reduzido */
+    .canva-container:hover {
+      transform: scale(1.03);
+    }
+
+    .canva-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .footer {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      font-size: 18px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        width: 96%;
+        padding: 25px;
+      }
+
+      .footer {
+        font-size: 16px;
+      }
+
+      .canva-container {
+        padding-bottom: 70%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      main {
+        width: 98%;
+        padding: 20px;
+      }
+
+      .footer {
+        font-size: 14px;
+        padding: 12px 0;
+      }
+
+      .canva-container {
+        padding-bottom: 80%;
+      }
+
+      .back-button {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Conteúdos</h1>
+  </header>
+
+  <main>
+    <a href="../materia/landingpage.html" class="back-button"><i class="fas fa-arrow-left"></i> Voltar para o início</a>
+
+    <h2>Conteúdos e Informações</h2>
+    <p>Explore uma variedade de conteúdos sobre parasitologia, desde artigos científicos até vídeos educativos.</p>
+
+    <!-- Contêiner do slide do Canva -->
+    <div class="canva-container">
+      <iframe src="https://www.canva.com/design/DAFvR6Qe5D0/PZ0Iaj9iDqXqUYqcC7vEaQ/view?embed" allowfullscreen></iframe>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Farmácia-UNIFEV. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
