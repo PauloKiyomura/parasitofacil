@@ -56,22 +56,22 @@ main h2 {
 .footer.show {
   bottom: 0; /* Coloca o rodapé no final da tela */
 }
-
-    /* Botão de voltar */
-    .back-button {
-      display: block;
-      width: fit-content;
-      margin: 0 auto 20px auto;
-      padding: 12px 20px;
-      background: #6200ea;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s ease-in-out;
-      text-align: center;
-    }
+.button-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente (se necessário) */
+  width: 100%;
+}
+.back-button {
+  padding: 12px 20px;
+  background: #6200ea;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+}
     
     .back-button:hover {
       background: #3700b3;
