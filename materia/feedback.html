@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens Recebidas</title>
+    <link rel="stylesheet" href="../css/feedback.css">
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+</head> 
+<body>
+    <header>
+        <h1>Mensagens Recebidas</h1>
+    </header>
+    
+    <a href="../materia/avalie.html" class="botao-link">Voltar</a>
+    
+    <main>
+        <section class="mensagens-container">
+            <h2>Mensagens Salvas</h2>
+            <ul id="mensagensLista"></ul>
+        </section>
+    </main>
+
+    <footer>© 2025 - Todos os direitos reservados</footer>
+
+    <script>
+        function carregarMensagens() {
+            fetch("banco.json") // Ajuste o caminho se necessário
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao carregar o arquivo JSON");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const lista = document.getElementById("mensagensLista");
+                    lista.innerHTML = "";
+
+                    data.forEach(msg => {
+                        const item = document.createElement("li");
+                        item.innerHTML = `<strong>${sanitizeHTML(msg.usuario)}</strong>: ${sanitizeHTML(msg.mensagem)}`;
+                        lista.appendChild(item);
+                    });
+                })
+                .catch(error => console.error("Erro ao carregar mensagens:", error));
+        }
+
+        function sanitizeHTML(text) {
+            return text.replace(/[&<>"']/g, function (match) {
+                return {
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#039;"
+                }[match];
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", carregarMensagens);
+    </script>
+</body>
+</html>

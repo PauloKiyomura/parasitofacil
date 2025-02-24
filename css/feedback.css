@@ -1,0 +1,81 @@
+body {
+    background: url('../assets/IMG_9559.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    text-align: center;
+}
+
+header {
+    background: black;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mensagens-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    color: #fff;
+    margin: 10px auto; /* Reduzi a margem superior */
+    position: relative;
+    top: -150px; /* Subi a caixa */
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.usuario {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.mensagem {
+    font-size: 14px;
+    color: #fff;
+}
+
+footer {
+    background: black;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+}
+
+.botao-link {
+    display: block;
+    background: #6f00ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 0px 0px 15px rgba(167, 119, 227, 0.8);
+    width: fit-content;
+    margin: 10px auto; /* Sobe o botão e mantém centralizado */
+    position: relative;
+    top: -79px; /* Ajusta para ficar mais perto do header */
+}
+
+.botao-link:hover {
+    background: #8c00ff;
+    box-shadow: 0px 0px 25px rgb(117, 58, 189);
+}
+
