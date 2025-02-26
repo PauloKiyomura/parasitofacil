@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Múltiplos Olhares sobre a Parasitologia</title>
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('../assets/exte.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* HEADER */
+        header {
+            background-color: black;
+            color: white;
+            padding: 15px;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* BOTÃO DE VOLTAR */
+        .back-button {
+            position: fixed;
+            top: 89px;
+            right: 20px;
+            background-color: #8000ff;
+            color: white;
+            padding: 12px 20px;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 24px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: #a366ff;
+        }
+/* ESTILIZAÇÃO DAS IMAGENS LADO A LADO */
+/* ESTILIZAÇÃO DAS IMAGENS LADO A LADO */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin-top: 50px;
+}
+
+.image-container img {
+    width: 400px; /* Tamanho da imagem */
+    height: 400px; /* Tamanho da imagem */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: none;  /* Remove qualquer borda indesejada */
+    padding: 0;  /* Remove o padding se houver */
+    display: block;  /* Garante que a imagem ocupe o espaço corretamente */
+    background-color: transparent; /* Garante que o fundo não tenha cor, se a imagem tiver fundo transparente */
+}
+
+.image-container h3 {
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: -100px;
+            width: 100%;
+            transition: bottom 0.5s;
+        }
+
+        body.scrolled footer {
+            bottom: 0;
+        }
+        
+        /* CONTEÚDO PRINCIPAL */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">Voltar</button>
+
+    <header>
+        Área de Extensão
+    </header>
+
+    <div class="container">
+        <h2>CURSOS PARTICIPANTES <br> do projeto de extensão 2025</h2>
+    </div>
+
+    <!-- CONTAINER PARA AS IMAGENS -->
+    <div class="image-container">
+        <div>
+            <h3>Biomedicina</h3>
+            <img src="../assets/biomedicina.png" alt="Imagem Biomedicina">
+        </div>
+        <div>
+            <h3>Farmácia</h3>
+            <img src="../assets/farmacia.png" alt="Imagem Farmácia">
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 - Todos os direitos reservados
+    </footer>
+
+    <script>
+        function goBack() {
+            window.location.href = "../materia/landingpage.html";
+        }
+    </script>
+</body>
+</html>
