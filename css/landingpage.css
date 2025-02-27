@@ -153,6 +153,7 @@ body {
     background: BLACK
     color: white;
     padding: 60px 20px;
+    padding-top: 120px;
     box-shadow: -4px 0 8px rgba(0,0,0,0.3);
     transition: right 0.6s ease, opacity 0.5s ease;
     opacity: 0;
@@ -166,7 +167,7 @@ body {
 .menu-item {
     display: block;
     padding: 15px;
-    margin: 10px;
+    margin: 7px;
     color: rgb(255, 255, 255);
     text-align: center;
     text-decoration: none;
@@ -174,6 +175,7 @@ body {
     border-radius: 12px;
     transition: 0.3s ease;
     background: black;
+    margin-top: 10px;
 }
 
 .menu-item:hover {

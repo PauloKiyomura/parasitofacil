@@ -51,31 +51,31 @@
         .back-button:hover {
             background-color: #a366ff;
         }
-/* ESTILIZAÇÃO DAS IMAGENS LADO A LADO */
-/* ESTILIZAÇÃO DAS IMAGENS LADO A LADO */
-.image-container {
-    display: flex;
-    justify-content: center;
-    gap: 45px;
-    margin-top: 50px;
-}
 
-.image-container img {
-    width: 400px; /* Tamanho da imagem */
-    height: 400px; /* Tamanho da imagem */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border: none;  /* Remove qualquer borda indesejada */
-    padding: 0;  /* Remove o padding se houver */
-    display: block;  /* Garante que a imagem ocupe o espaço corretamente */
-    background-color: transparent; /* Garante que o fundo não tenha cor, se a imagem tiver fundo transparente */
-}
+        /* ESTILIZAÇÃO DAS IMAGENS LADO A LADO */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            margin-top: 50px;
+            flex-wrap: wrap;  /* Permite que as imagens se ajustem em telas pequenas */
+        }
 
-.image-container h3 {
-    font-size: 35px;
-    margin-top: 10px;
-}
+        .image-container img {
+            width: 400px; /* Tamanho da imagem */
+            height: 400px; /* Tamanho da imagem */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: none;  /* Remove qualquer borda indesejada */
+            padding: 0;  /* Remove o padding se houver */
+            display: block;  /* Garante que a imagem ocupe o espaço corretamente */
+            background-color: transparent; /* Garante que o fundo não tenha cor, se a imagem tiver fundo transparente */
+        }
 
+        .image-container h3 {
+            font-size: 35px;
+            margin-top: 10px;
+        }
 
         footer {
             background-color: black;
@@ -85,13 +85,12 @@
             position: fixed;
             bottom: -100px;
             width: 100%;
-            transition: bottom 0.5s;
         }
 
         body.scrolled footer {
             bottom: 0;
         }
-        
+
         /* CONTEÚDO PRINCIPAL */
         .container {
             width: 90%;
@@ -101,6 +100,60 @@
             flex-direction: column;
             gap: 50px;
             font-size: 25px;
+        }
+
+        /* MEDIA QUERIES PARA RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-container img {
+                width: 300px;
+                height: 300px;
+            }
+
+            .image-container h3 {
+                font-size: 30px;
+            }
+
+            .container {
+                font-size: 22px;
+            }
+
+            .back-button {
+                font-size: 20px;
+                padding: 10px 18px;
+            }
+
+            footer {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-container img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .image-container h3 {
+                font-size: 25px;
+            }
+
+            .container {
+                font-size: 18px;
+            }
+
+            .back-button {
+                font-size: 18px;
+                padding: 8px 16px;
+            }
+
+            footer {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -133,8 +186,17 @@
 
     <script>
         function goBack() {
-            window.location.href = "../materia/landingpage.html";
+            window.location.href = "../materia/extensao.html";
         }
+
+        // Adicionando efeito de scroll no footer
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 </html>

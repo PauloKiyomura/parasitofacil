@@ -49,19 +49,21 @@ main h2 {
   text-align: center;
   padding: 0px 0px; /* Reduzindo o padding superior e inferior */
   z-index: 1000;
+  transition: bottom 0.3s ease-in-out;
 }
-
 
 /* Quando o usuário rolar até o final */
 .footer.show {
   bottom: 0; /* Coloca o rodapé no final da tela */
 }
+
 .button-container {
   display: flex;
   justify-content: center; /* Centraliza horizontalmente */
   align-items: center; /* Centraliza verticalmente (se necessário) */
   width: 100%;
 }
+
 .back-button {
   padding: 12px 20px;
   background: #6200ea;
@@ -72,12 +74,11 @@ main h2 {
   border-radius: 8px;
   transition: 0.3s ease-in-out;
 }
-    
-    .back-button:hover {
-      background: #3700b3;
-      transform: scale(1.05);
-    }
-    
+
+.back-button:hover {
+  background: #3700b3;
+  transform: scale(1.05);
+}
 
 /* Ajuste do container de vídeo */
 .video-container {
@@ -93,4 +94,68 @@ video {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* RESPONSIVIDADE */
+
+/* Para telas pequenas (por exemplo, dispositivos móveis) */
+@media (max-width: 768px) {
+  main {
+    padding: 15px; /* Ajuste do padding em telas pequenas */
+  }
+
+  main h2 {
+    font-size: 24px; /* Ajuste o tamanho da fonte */
+  }
+
+  .footer {
+    font-size: 16px; /* Ajuste o tamanho da fonte do footer */
+    padding: 10px 0; /* Ajuste o padding no footer */
+  }
+
+  .back-button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .video-container {
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  video {
+    width: 100%;
+    border-radius: 8px; /* Ajuste da borda */
+  }
+}
+
+/* Para telas muito pequenas, como celulares em modo retrato */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 22px; /* Ajuste o tamanho da fonte do título */
+  }
+
+  .back-button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  main h2 {
+    font-size: 20px; /* Reduz o tamanho da fonte em dispositivos pequenos */
+  }
+
+  .footer {
+    font-size: 14px;
+    padding: 8px 0; /* Ajuste de padding no footer */
+  }
+
+  .video-container {
+    width: 100%;
+    margin: 5px auto;
+  }
+
+  video {
+    width: 100%;
+    border-radius: 8px;
+  }
 }

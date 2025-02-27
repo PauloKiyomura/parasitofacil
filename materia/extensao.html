@@ -14,7 +14,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: url('../assets/exte.png') no-repeat center center fixed;
+            background: url('../assets/6426b3c84bd07f5104371b0f1d7b3478.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             text-align: center;
@@ -106,20 +106,21 @@
             top: 0;
         }
 
-        .menu {
+ .menu {
     position: fixed;
-    top: 60px; /* Distância do topo */
-    left: -270px; /* Começa fora da tela */
-    width: 270px;
-    height: 100%; /* Altura do menu (pode ajustar conforme necessário) */
+    top: 60px;
+    left: -270px;
+    width: 250px; /* Corrigido para garantir que o menu tenha a largura certa */
+    height: 100%;
     background: rgba(0, 0, 0, 0.9);
     color: white;
     padding-top: 20px;
     transition: left 0.3s ease-in-out;
     backdrop-filter: blur(15px);
     border-right: 2px solid white;
-    z-index: 1000; /* Garante que o menu fique acima dos outros elementos, mas ainda deixa interagir com os itens abaixo */
+    z-index: 1000;
 }
+
 
 .menu.open {
     left: 0; /* Quando o menu estiver aberto, ele aparecerá */
@@ -171,20 +172,123 @@ body {
             flex-direction: column;
             gap: 50px;
         }
+        .titulo {
+    font-size: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
 
-        footer {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            bottom: -100px;
-            width: 100%;
-            transition: bottom 0.5s;
-        }
+.descricao {
+    font-size: 30px;
+    color: #ffffff;
+    line-height: 1.8;
+    text-align: justify;
+    max-width: 800px;
+    margin: 0 auto;
+    text-indent: 30px; /* Ajuste o valor para menos, caso necessário */
+}
+
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 30px; /* Aumentado para 30px para um footer mais alto */
+    position: fixed;
+    bottom: 0; /* Colocando o footer mais para cima */
+    left: 0;
+    width: 100%;
+    font-size: 20px; /* Aumentado para 25px para um texto maior */
+    font-family: sans-serif;
+}
 
         body.scrolled footer {
             bottom: 0;
+        }
+        .h2{
+            font-size: 25px;
+        }
+        .lista-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 24px;
+        }
+
+        li {
+    background: rgba(156, 114, 184, 0.8);
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s ease; /* Adicionando transição para o aumento e a cor */
+}
+
+li:hover {
+    background: #a366ff; /* Alterando a cor ao passar o mouse */
+    transform: scale(1.1); /* Aumentando o tamanho do item da lista */
+}
+ /* MEDIA QUERIES PARA RESPONSIVIDADE */
+ @media (max-width: 768px) {
+            .menu {
+                width: 200px;
+            }
+
+            .menu a {
+                font-size: 22px;
+                padding: 12px;
+            }
+
+            .titulo {
+                font-size: 30px;
+            }
+
+            .descricao {
+                font-size: 18px;
+            }
+
+            .back-button {
+                font-size: 20px;
+                padding: 10px 18px;
+            }
+
+            footer {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo {
+                font-size: 24px;
+            }
+
+            .descricao {
+                font-size: 18px;
+            }
+
+            .back-button {
+                font-size: 18px;
+                padding: 8px 16px;
+            }
+
+            footer {
+                font-size: 16px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -205,14 +309,25 @@ body {
     <header>
         Área de Extensão
     </header>
-
     <div class="container">
-        <h2>Bem-vindo!</h2>
-        <p>Explore os participantes e cursos disponíveis.</p>
-    </div>
+        <h2 class="titulo">Bem-vindo à página de <br> Extensão.</h2>
+        <p class="descricao">
+            Neste espaço dedicado ao projeto de extensão da Unifev 2025, você, participante, terá acesso a uma ampla gama de trabalhos realizados pelos acadêmicos dos cursos de Fármacia e Biomedicina. Estes projetos foram desenvolvidos com o intuito de levar à população conhecimentos valiosos sobre diversas áreas da biologia. O projeto abrange temas relevantes de quatro áreas fundamentais: <strong>Bioquímica Metabólica, Epidemiologia, Microbiologia e Parasitologia</strong>, proporcionando uma abordagem diversificada e abrangente sobre questões de saúde pública.
 
+            Com foco na aplicação prática do conteúdo aprendido em sala de aula, o projeto visa estreitar o relacionamento entre os estudantes e a comunidade, possibilitando que o conhecimento científico seja compartilhado de forma acessível e impactante. Ao promover a conscientização sobre esses temas, o projeto contribui para a disseminação de informações essenciais para a saúde e bem-estar da população, além de fortalecer o papel da universidade na educação e promoção da saúde pública.
+
+            Este projeto não só favorece o aprendizado dos acadêmicos, mas também é uma oportunidade para todos os envolvidos se beneficiarem da troca de saberes e experiências, contribuindo assim para uma sociedade mais informada e saudável.
+             <ul>
+             <li><strong>Bioquímica Metabólica</strong> – Estudo dos processos químicos fundamentais para o funcionamento dos organismos vivos.</li>
+            <li><strong> Epidemiologia</strong> – Investigação da distribuição, dos determinantes e da prevenção de doenças na população.</li>
+            <li><strong>Microbiologia</strong> – Análise dos microrganismos e seu impacto na saúde, incluindo estudos sobre bactérias, fungos e vírus.</li>
+            <li><strong>Parasitologia</strong> – Exploração das relações entre parasitas e hospedeiros, com foco em doenças parasitárias.</li>
+        </ul>
+        </p>
+    </div>
+    
     <footer>
-        &copy; 2025 - Todos os direitos reservados
+        <p>&copy; 2025 Projeto de Extensão UNIFEV - Todos os direitos reservados.</p>
     </footer>
 
     <script>
@@ -250,6 +365,18 @@ body {
         document.getElementById("menu").addEventListener('click', function(event) {
             event.stopPropagation();  // Impede que o clique dentro do menu feche o menu
         });
+        window.addEventListener('scroll', function() {
+    var footer = document.querySelector('footer');
+    var scrollPosition = window.scrollY + window.innerHeight;
+    var documentHeight = document.documentElement.scrollHeight;
+
+    if (scrollPosition >= documentHeight) {
+        footer.style.bottom = '0'; // Exibe o rodapé
+    } else {
+        footer.style.bottom = '-60px'; // Esconde o rodapé
+    }
+});
+
     </script>
     
     
