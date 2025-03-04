@@ -35,10 +35,14 @@
                 .then(data => {
                     const lista = document.getElementById("mensagensLista");
                     lista.innerHTML = "";
-
+                    const usuarioNome = localStorage.getItem("usuarioNome") || "Anônimo";
+                    
                     data.forEach(msg => {
+                        const numeroAleatorio = Math.floor(100 + Math.random() * 900); // Gera um número de 3 dígitos
+                        const nomeComNumero = `${usuarioNome}${numeroAleatorio}`;
+                        
                         const item = document.createElement("li");
-                        item.innerHTML = `<strong>${sanitizeHTML(msg.usuario)}</strong>: ${sanitizeHTML(msg.mensagem)}`;
+                        item.innerHTML = `<strong>${sanitizeHTML(nomeComNumero)}</strong>: ${sanitizeHTML(msg.mensagem)}`;
                         lista.appendChild(item);
                     });
                 })
@@ -46,7 +50,7 @@
         }
 
         function sanitizeHTML(text) {
-            return text.replace(/[&<>"']/g, function (match) {
+            return text.replace(/[&<>"]|'/g, function (match) {
                 return {
                     "&": "&amp;",
                     "<": "&lt;",

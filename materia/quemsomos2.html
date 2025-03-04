@@ -14,12 +14,15 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
+            padding: 20px;
+            text-align: center;
         }
         .container {
             display: flex;
             gap: 30px;
             flex-wrap: wrap;
             justify-content: center;
+            max-width: 90%;
         }
         .portrait {
             display: flex;
@@ -29,8 +32,8 @@
             gap: 10px;
         }
         .portrait img {
-            width: 160px;
-            height: 160px;
+            width: clamp(100px, 20vw, 160px);
+            height: clamp(100px, 20vw, 160px);
             object-fit: cover;
             border-radius: 50%;
             border: 5px solid white;
@@ -41,14 +44,13 @@
         }
         .text {
             color: white;
-            font-size: 35px;
+            font-size: clamp(20px, 4vw, 35px);
             font-weight: bold;
-            text-align: center;
         }
         .info-box {
             position: absolute;
             top: 180px;
-            width: 200px;
+            width: clamp(150px, 40vw, 200px);
             background: rgba(0, 0, 0, 0.6);
             color: white;
             padding: 10px;
@@ -65,102 +67,29 @@
         }
         
         a.voltar {
-    position: fixed;
-  top: -255px;
-  right: 605px;
-  cursor: pointer;
-  padding: 15px 30px;
-  color: #7700ff;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  text-decoration: none;
-  font-size: 24px;
-  border: 2px solid #7700ff;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  }
-  a.voltar {
-    position: relative;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #7700ff;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 24px;
-    border: 2px solid #7700ff;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-}
-a.voltar:hover {
-    color: #fff;
-    background: #7700ff;
-    box-shadow: 0 0 10px #7700ff, 0 0 40px #7700ff, 0 0 80px #7700ff;
-    border-color: transparent;
-}
-
-a.voltar span {
-    position: absolute;
-    display: block;
-    background: #7700ff;
-    box-shadow: 0 0 5px #7700ff, 0 0 10px #7700ff, 0 0 20px #7700ff;
-    transition: 1s;
-}
-
-a.voltar span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-}
-
-a.voltar:hover span:nth-child(1) {
-    left: 100%;
-}
-
-a.voltar span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    transition-delay: 0.25s;
-}
-
-a.voltar:hover span:nth-child(2) {
-    top: 100%;
-}
-
-a.voltar span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    transition-delay: 0.5s;
-}
-
-a.voltar:hover span:nth-child(3) {
-    right: 100%;
-}
-
-a.voltar span:nth-child(4) {
-    bottom: 100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    transition-delay: 0.75s;
-}
-
-a.voltar:hover span:nth-child(4) {
-    bottom: 0;
-}
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 12px 25px;
+            color: #7700ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-size: clamp(14px, 2vw, 18px);
+            border: 2px solid #7700ff;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+        a.voltar:hover {
+            color: #fff;
+            background: #7700ff;
+            box-shadow: 0 0 10px #7700ff, 0 0 40px #7700ff, 0 0 80px #7700ff;
+            border-color: transparent;
+        }
     </style>
 </head>
 <body>
-
     <a href="landingpage.html" class="voltar">Voltar</a>
-
     <div class="container">
         <div class="portrait">
             <div class="text">Ayumi <br> Kitada</div>
@@ -188,6 +117,5 @@ a.voltar:hover span:nth-child(4) {
             <div class="info-box">Desenvolvedor e Webdesigner do site e acadêmico de farmácia do 3° período.</div>
         </div>
     </div>
-
 </body>
 </html>

@@ -2,9 +2,11 @@ body {
     background: url('../assets/IMG_9559.jpg') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     text-align: center;
+    margin: 0;
 }
 
 header {
@@ -13,21 +15,24 @@ header {
     padding: 20px;
     font-size: 18px;
     font-weight: bold;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1000;
 }
 
 .mensagens-container {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: 20px;
+    padding: 30px;
     border-radius: 15px;
-    width: 90%;
-    max-width: 500px;
+    width: 95%;
+    max-width: 550px;
     color: #fff;
-    margin: 10px auto; /* Reduzi a margem superior */
-    position: relative;
-    top: -150px; /* Subi a caixa */
+    margin: 120px auto 20px; /* Ajuste para evitar sobreposição com o header */
 }
-
 
 ul {
     list-style: none;
@@ -50,28 +55,29 @@ footer {
     background: black;
     color: white;
     padding: 20px;
-    font-size: 25px;
+    font-size: 18px;
     font-weight: bold;
-    position: relative;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
 }
 
 .botao-link {
     display: block;
     background: #6f00ff;
     color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 15px 25px;
+    border-radius: 10px;
     text-decoration: none;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
     text-transform: uppercase;
     transition: 0.3s;
     box-shadow: 0px 0px 15px rgba(167, 119, 227, 0.8);
     width: fit-content;
-    margin: 10px auto; /* Sobe o botão e mantém centralizado */
-    position: relative;
-    top: -79px; /* Ajusta para ficar mais perto do header */
+    margin: 25px auto; /* Ajuste para evitar sobreposição */
 }
 
 .botao-link:hover {
@@ -79,3 +85,18 @@ footer {
     box-shadow: 0px 0px 25px rgb(117, 58, 189);
 }
 
+@media (max-width: 600px) {
+    .mensagens-container {
+        width: 95%;
+    }
+    
+    .botao-link {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+    
+    footer {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
