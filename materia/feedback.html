@@ -24,41 +24,44 @@
     <footer>© 2025 - Todos os direitos reservados</footer>
 
     <script>
-        function carregarMensagens() {
-            fetch("banco.json") // Ajuste o caminho se necessário
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Erro ao carregar o arquivo JSON");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const lista = document.getElementById("mensagensLista");
-                    lista.innerHTML = "";
-                    const usuarioNome = localStorage.getItem("usuarioNome") || "Anônimo";
+        async function carregarMensagens() {
+            try {
+                const response = await fetch("../banco/banco.json"); // Ajuste o caminho se necessário
+                if (!response.ok) {
+                    throw new Error(`Erro ${response.status}: Não foi possível carregar as mensagens.`);
+                }
+                
+                const data = await response.json();
+                const lista = document.getElementById("mensagensLista");
+                lista.innerHTML = "";
+                const usuarioNome = localStorage.getItem("usuarioNome") || "Anônimo";
+                
+                if (data.length === 0) {
+                    lista.innerHTML = "<li>Nenhuma mensagem encontrada.</li>";
+                    return;
+                }
+                
+                data.forEach(msg => {
+                    const numeroAleatorio = Math.floor(100 + Math.random() * 900); // Gera um número de 3 dígitos
+                    const nomeComNumero = `${usuarioNome}${numeroAleatorio}`;
                     
-                    data.forEach(msg => {
-                        const numeroAleatorio = Math.floor(100 + Math.random() * 900); // Gera um número de 3 dígitos
-                        const nomeComNumero = `${usuarioNome}${numeroAleatorio}`;
-                        
-                        const item = document.createElement("li");
-                        item.innerHTML = `<strong>${sanitizeHTML(nomeComNumero)}</strong>: ${sanitizeHTML(msg.mensagem)}`;
-                        lista.appendChild(item);
-                    });
-                })
-                .catch(error => console.error("Erro ao carregar mensagens:", error));
+                    const item = document.createElement("li");
+                    item.innerHTML = `<strong>${sanitizeHTML(nomeComNumero)}</strong>: ${sanitizeHTML(msg.mensagem)}`;
+                    lista.appendChild(item);
+                });
+            } catch (error) {
+                console.error("Erro ao carregar mensagens:", error);
+            }
         }
 
         function sanitizeHTML(text) {
-            return text.replace(/[&<>"]|'/g, function (match) {
-                return {
-                    "&": "&amp;",
-                    "<": "&lt;",
-                    ">": "&gt;",
-                    '"': "&quot;",
-                    "'": "&#039;"
-                }[match];
-            });
+            return text.replace(/[&<>"']/g, match => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            })[match]);
         }
 
         document.addEventListener("DOMContentLoaded", carregarMensagens);
