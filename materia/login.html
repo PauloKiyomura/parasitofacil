@@ -12,10 +12,22 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: url('../assets/IMG_9560.jpg') no-repeat center center/cover;
             font-family: Arial, sans-serif;
             overflow: hidden;
+            position: relative;
         }
+        
+        /* Vídeo de fundo */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
         .card {
             background: rgba(255, 255, 255, 0.2);
             padding: 20px;
@@ -87,6 +99,12 @@
     </style>
 </head>
 <body>
+    <!-- Vídeo de fundo -->
+    <video autoplay loop muted class="background-video">
+        <source src="../animação/videoindex.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos HTML5.
+    </video>
+    
     <div class="card">
         <h2>Digite seu nome</h2>
         <input type="text" id="nomeInput" placeholder="Seu nome">
@@ -121,7 +139,7 @@
 
                 // Redirecionar para a página principal após 3 segundos
                 setTimeout(() => {
-                    window.location.href = '../materia/landingpage.html'; // Altere para o URL desejado
+                    window.location.href = '../materia/landingpage.html';
                 }, 3000);
             }
         });
