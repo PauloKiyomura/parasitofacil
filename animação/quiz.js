@@ -1,6 +1,7 @@
 // Variáveis para armazenar o estado do quiz
 let perguntaAtual = 0;
 let pontuacao = 0;
+let respostasErradas = [];
 
 const perguntas = [
     { pergunta: "Qual protozoário causa a Doença de Chagas?", opcoes: ["Trypanosoma cruzi", "Plasmodium falciparum", "Giardia lamblia", "Leishmania braziliensis"], resposta: "Trypanosoma cruzi" },
@@ -26,26 +27,25 @@ const perguntas = [
 ];
 
 // Função para iniciar o quiz
+// Função para iniciar o quiz
 function iniciarQuiz() {
-    // Esconde a tela inicial e mostra o quiz
     document.getElementById("tela-inicial").style.display = "none";
     document.getElementById("quiz-container").style.display = "block";
-    carregarPergunta(); // Carregar a primeira pergunta
+    carregarPergunta();
 }
 
 // Função para carregar a pergunta
 function carregarPergunta() {
     const perguntaElem = document.getElementById("pergunta");
     const opcoesElem = document.getElementById("opcoes");
-
-    // Atualiza o conteúdo da pergunta
+    
     perguntaElem.textContent = perguntas[perguntaAtual].pergunta;
-    opcoesElem.innerHTML = ""; // Limpa as opções antigas
-
-    // Cria os botões de opção
+    opcoesElem.innerHTML = "";
+    
     perguntas[perguntaAtual].opcoes.forEach(opcao => {
         const botao = document.createElement("button");
         botao.textContent = opcao;
+        botao.classList.add("opcao-botao");
         botao.onclick = () => verificarResposta(opcao);
         opcoesElem.appendChild(botao);
     });
@@ -55,6 +55,12 @@ function carregarPergunta() {
 function verificarResposta(resposta) {
     if (resposta === perguntas[perguntaAtual].resposta) {
         pontuacao++;
+    } else {
+        respostasErradas.push({
+            pergunta: perguntas[perguntaAtual].pergunta,
+            respostaCorreta: perguntas[perguntaAtual].resposta,
+            respostaUsuario: resposta
+        });
     }
     proximaPergunta();
 }
@@ -73,28 +79,217 @@ function proximaPergunta() {
 // Função para exibir o resultado final
 function exibirResultado() {
     const quizContainer = document.getElementById("quiz-container");
-    quizContainer.innerHTML = `<h2>Quiz Finalizado!</h2>
-                               <p>Sua pontuação: ${pontuacao} de ${perguntas.length}</p>
-                               <button onclick="reiniciarQuiz()">Reiniciar Quiz</button>`;
-}
-
-// Função para reiniciar o quiz
-function reiniciarQuiz() {
-    // Reseta as variáveis para reiniciar o quiz
-    perguntaAtual = 0;
-    pontuacao = 0;
-
-    // Limpa o conteúdo da tela de quiz
-    document.getElementById("quiz-container").innerHTML = `
-        <div id="pergunta"></div>
-        <div id="opcoes"></div>
+    quizContainer.innerHTML = `
+        <h2>Quiz Finalizado!</h2>
+        <p>Sua pontuação: <span class="resultado-certo">${pontuacao}</span> de <span class="resultado-errado">${perguntas.length}</span></p>
+        <button class="botao-menor" onclick="exibirGabarito()">Ver Gabarito</button>
+        <button class="botao-menor" onclick="reiniciarQuiz()">Reiniciar Quiz</button>
     `;
-
-    // Limpa a tela de resultado e mostra o quiz
-    document.getElementById("quiz-container").style.display = "block";
-    document.getElementById("tela-inicial").style.display = "none";
-
-    // Recarrega a primeira pergunta
-    carregarPergunta();
 }
 
+// Função para exibir o gabarito
+function exibirGabarito() {
+    const quizContainer = document.getElementById("quiz-container");
+    let gabaritoHTML = `
+        <h2>Gabarito</h2>
+        <p>Corretas: <span class="resultado-certo">${pontuacao}</span> | Erradas: <span class="resultado-errado">${respostasErradas.length}</span></p>
+        <div class="gabarito-lista">
+    `;
+    respostasErradas.forEach(item => {
+        gabaritoHTML += `
+            <div class="gabarito-item">
+                <p><strong>Pergunta:</strong> ${item.pergunta}</p>
+                <p class="certa">Resposta correta: ${item.respostaCorreta}</p>
+                <p class="errada">Sua resposta: ${item.respostaUsuario}</p>
+            </div>
+        `;
+    });
+    gabaritoHTML += `</div><button class="botao-menor" onclick="exibirResultado()">Fechar Gabarito</button>`;
+    quizContainer.innerHTML = gabaritoHTML;
+}
+// Função para recarregar a página
+function reiniciarQuiz() {
+    location.reload();  // Recarrega a página atual
+}
+
+
+// Estilos para botões harmonizados
+document.head.insertAdjacentHTML("beforeend", `
+       <style>
+        /* Estilo para o botão de respostas */
+/* Estilo para o botão de respostas */
+#opcoes .opcao-botao {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    background: rgb(128, 0, 128); /* Cor roxa escura para as alternativas */
+    color: #fff; /* Cor branca para o texto */
+    border: 2px solid hsl(282, 100%, 50%); /* Borda roxa mais escura */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box; /* Garante que a largura ocupe 100% do espaço disponível */
+}
+
+/* Hover para os botões de resposta */
+#opcoes .opcao-botao:hover {
+    background: rgb(160, 0, 160); /* Cor de fundo roxa mais clara no hover */
+    transform: scale(1.05);
+}
+
+
+
+        /* Cor para todos os parágrafos */
+        p {
+            color: #000; /* Cor preta para todos os p */
+        }
+
+        /* Estilo para as respostas corretas */
+        .resultado-certo {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Estilo para as respostas incorretas */
+        .resultado-errado {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        /* Estilo para os botões da tela final */
+        .botao-menor {
+            padding: 8px 15px; /* Botões menores */
+            font-size: 16px; /* Tamanho da fonte menor */
+            margin: 8px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #4CAF50, #3e8e41);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: transform 0.2s ease, background 0.3s;
+            width: auto; /* Para que o tamanho seja ajustado ao conteúdo */
+        }
+
+        .botao-menor:hover {
+            background: linear-gradient(135deg, #3e8e41, #2c6e35);
+            transform: scale(1.05);
+        }
+
+        /* Estilos do gabarito */
+        .gabarito-item {
+            background-color: rgb(0, 0, 0);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .gabarito-item p {
+            margin: 5px 0;
+        }
+
+        .certa {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .errada {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        /* Estilo para o título do gabarito */
+        .gabarito-lista {
+            margin-top: 20px;
+        }
+
+        /* Estilo geral para o quiz container (Card com "blow" e bordas arredondadas) */
+        #quiz-container {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgb(0, 0, 0);
+            transform: translateY(-10px);
+            transition: all 0.3s ease-in-out;
+            width: 100%; /* Para ocupar toda a largura disponível */
+            box-sizing: border-box;
+        }
+
+        /* Efeito de "blow" para dar a impressão de movimento */
+        #quiz-container:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Título dentro do card */
+        #quiz-container h2 {
+            text-align: center;
+            color: #000; /* Título em preto */
+        }
+
+        /* Estilo para as perguntas em roxo */
+        #pergunta {
+            color: rgb(0, 0, 0); /* Cor preta para as perguntas */
+            font-weight: bold;
+        }
+
+        /* Centralizar os botões do gabarito dentro do card branco */
+        .gabarito-lista {
+            text-align: center;
+        }
+
+        /* Estilo dos botões no gabarito */
+        .botao-menor {
+            margin: 10px;
+            display: inline-block;
+        }
+
+        /* Estilos de responsividade */
+        @media (max-width: 768px) {
+            /* Ajuste para dispositivos móveis */
+            #quiz-container {
+                padding: 15px;
+            }
+
+            .opcao-botao {
+                font-size: 16px; /* Diminuir o tamanho da fonte */
+                padding: 8px 15px; /* Ajustar o padding */
+            }
+
+            .botao-menor {
+                font-size: 14px; /* Tamanho menor para os botões */
+                padding: 6px 12px;
+            }
+
+            /* Garantir que os botões não ocupem toda a largura */
+            .botao-menor {
+                width: auto;
+            }
+        }
+
+        /* Estilos adicionais para telas menores (mobile-first) */
+        @media (max-width: 480px) {
+            /* Ajustes finais para dispositivos muito pequenos */
+            .opcao-botao {
+                font-size: 14px; /* Fonte ainda menor */
+                padding: 6px 10px; /* Menor padding */
+            }
+
+            .botao-menor {
+                font-size: 12px; /* Fonte ainda menor para os botões */
+                padding: 5px 10px;
+            }
+
+            #quiz-container {
+                margin: 10px; /* Menos espaço nas bordas */
+                padding: 10px; /* Menos padding */
+            }
+        }
+    </style>
+ 
+
+`);
