@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amebíase - Múltiplos Olhares sobre a Parasitologia</title>
+  <title>Amebíase </title>
   <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -13,8 +13,8 @@
       background-position: center;
       background-repeat: no-repeat;
       width: 100vw;
-      height: 100vh; /* Define a altura total da tela */
-      overflow-y: auto; /* Garante scroll vertical quando necessário */
+      height: 100vh;
+      overflow-y: auto;
       margin: 0;
       padding: 0;
     }
@@ -36,8 +36,8 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow-y: auto; /* Garante scroll no conteúdo principal */
-      height: calc(100vh - 200px); /* Ajusta a altura do main para permitir scroll */
+      overflow-y: auto;
+      height: calc(100vh - 200px);
     }
     .footer {
       position: fixed;
@@ -64,8 +64,18 @@
     p {
       font-size: 20px;
     }
-    ul{
+    ul {
       font-size: 18px;
+    }
+    .image-container {
+      text-align: center;
+      margin: 20px auto;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
@@ -78,25 +88,28 @@
     <h2>O que é:</h2>
     <br>
     <p>
-      A amebíase é causada pelo protozoário <i><u> Entamoeba histolytica</u></i>, que infecta o intestino grosso. Pode causar sintomas como diarreia, dor abdominal, febre e, em casos graves, abscessos no fígado.
+      A amebíase é causada pelo protozoário <i><u>Entamoeba histolytica</u></i>, que infecta o intestino grosso. Pode causar sintomas como diarreia, dor abdominal, febre e, em casos graves, abscessos no fígado.
       <br>
       Ciclo de Vida:
       Os cistos do parasita são ingeridos através de água ou alimentos contaminados. Dentro do intestino, os cistos se transformam em trofozoítos que invadem a parede intestinal, causando inflamação e lesões.
-      </p>
-      <br>
-      <p>
-      Prevenção:
     </p>
-      <ul>
+    <br>
+    <p>Prevenção:</p>
+    <ul>
       <li>Higiene alimentar e de mãos, evitando o consumo de alimentos crus ou mal lavados.</li>
-      <li>Evitar beber água contaminada ou de fontes duvidosas..</li>
+      <li>Evitar beber água contaminada ou de fontes duvidosas.</li>
       <li>Desinfetar bem frutas e vegetais consumidos crus.</li>
-      </ul>
-      <br>
-      <p>
-      Tratamento:
+    </ul>
+    <br>
+    <p>Tratamento:  
       A amebíase é tratada com metronidazol, tinidazol ou paromomicina, que ajudam a eliminar o parasita do corpo.
     </p>
+    
+    <!-- Imagem adicionada abaixo do último parágrafo -->
+    <div class="image-container">
+      <img src="../ciclo/amebiase.jpeg" alt="Imagem ilustrativa sobre amebíase">
+    </div>
+
   </main>
   <footer class="footer">
     <p>&copy; 2025 Farmácia-UNIFEV. Todos os direitos reservados.</p>

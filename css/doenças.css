@@ -111,12 +111,22 @@ main {
 
 .button-container {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente (se necessário) */
+  justify-content: center; /* Centraliza os botões na linha */
+  align-items: center;
+  gap: 30px; /* Aumenta o espaço entre os botões */
   width: 100%;
 }
 
+.button-cont {
+  display: flex;
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  align-items: center;
+  gap: 30px; /* Aumenta o espaço entre os botões */
+  width: auto; /* Ajusta para que o conteúdo tenha o tamanho necessário */
+}
+
 .back-button {
+  margin: 0; /* Remove possíveis margens padrão */
   padding: 12px 20px;
   background: #6200ea;
   color: white;
@@ -131,7 +141,6 @@ main {
   background: #3700b3;
   transform: scale(1.05);
 }
-
 
 /* Títulos */
 h3 {

@@ -188,7 +188,6 @@ const perguntas = [
 ];
 
 // Função para iniciar o quiz
-// Função para iniciar o quiz
 function iniciarQuiz() {
   document.getElementById("tela-inicial").style.display = "none";
   document.getElementById("quiz-container").style.display = "block";
