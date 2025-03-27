@@ -52,6 +52,9 @@ nav ul li {
     display: inline-block;
     margin: 0 15px;
 }
+p {
+    text-indent: 20px; /* Ajuste o valor conforme necessário */
+}
 
 nav ul li a {
     color: #fff;
