@@ -96,6 +96,7 @@ p {
     font-size: 1.1rem;
     margin-bottom: 20px;
     line-height: 1.8; /* Espaçamento entre linhas para melhor leitura */
+    text-indent: 30px; /* Ajuste o valor para menos, caso necessário */
 }
 
 /* Estilo das Listas Ordenadas */
